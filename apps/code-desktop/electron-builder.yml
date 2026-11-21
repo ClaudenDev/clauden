@@ -1,0 +1,66 @@
+appId: space.teleopen.claudencode
+productName: Clauden Code
+copyright: Copyright (c) 2026 Clauden
+
+directories:
+  output: dist
+  buildResources: assets
+
+files:
+  - src/**/*
+  - package.json
+  - assets/**/*
+  - "!**/*.map"
+  - "!**/*.md"
+
+asar: true
+compression: normal
+
+publish:
+  provider: generic
+  url: https://clauden.best/downloads/code
+
+win:
+  executableName: ClaudenCode
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: assets/icon.ico
+  artifactName: ClaudenCode-${version}-${arch}.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Clauden Code
+  uninstallDisplayName: Clauden Code
+
+linux:
+  executableName: clauden-code
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: tar.gz
+      arch: [x64]
+  category: Development
+  icon: assets/icon.png
+  synopsis: Clauden Code
+  description: Clauden Code — IDE для агентских сессий Clauden.
+  maintainer: Clauden <support@clauden.best>
+  artifactName: ClaudenCode-${version}-${arch}.${ext}
+
+appImage:
+  artifactName: ClaudenCode-${version}-${arch}.AppImage
+  desktop:
+    entry:
+      Name: Clauden Code
+      Comment: Clauden Code
+      Categories: Development;IDE;
+
+mac:
+  target: [dmg]
+  category: public.app-category.developer-tools
+  icon: assets/icon.png
+  artifactName: ClaudenCode-${version}-${arch}.${ext}

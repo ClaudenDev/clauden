@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="color-scheme" content="dark">
+<title>Clauden</title>
+<style>
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color-scheme: dark;
+    overflow: hidden;
+  }
+  #stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    position: absolute;
+    max-width: 94%;
+    max-height: 94%;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity .45s ease;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .42));
+  }
+  img.on { opacity: 1; }
+</style>
+<body>
+<div id="stage">
+  <img src="scenes/scene-open-chat.svg" data-dur="6200" alt="">
+  <img src="scenes/scene-typing.svg" data-dur="5000" alt="">
+  <img src="scenes/scene-thinking.svg" data-dur="4400" alt="">
+  <img src="scenes/scene-listen.svg" data-dur="5000" alt="">
+  <img src="scenes/scene-send.svg" data-dur="3800" alt="">
+  <img src="scenes/scene-success.svg" data-dur="4400" alt="">
+</div>
+<script>
+  var images = Array.prototype.slice.call(document.querySelectorAll('img'));
+  var index = 0;
+  var timer = null;
+
+  function show(next) {
+    images.forEach(function (element, position) {
+      element.classList.toggle('on', position === next);
+    });
+  }
+
+  function loop() {
+    var duration = Number(images[index].getAttribute('data-dur')) || 5000;
+    timer = setTimeout(function () {
+      index = (index + 1) % images.length;
+      show(index);
+      loop();
+    }, duration);
+  }
+
+  show(0);
+  loop();
+
+  window.addEventListener('pagehide', function () {
+    if (timer) clearTimeout(timer);
+  });
+</script>
+</html>

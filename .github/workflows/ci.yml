@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: syntax
+        working-directory: backend
+        run: |
+          for f in src/*.mjs scripts/*.mjs; do node --check "$f"; done
+      - name: tests
+        working-directory: backend
+        run: npm test
+      - name: smoke
+        working-directory: backend
+        run: npm run smoke
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: check entry points
+        run: |
+          test -f apps/web/index.html
+          test -f apps/web/js/app.bundle.js
+          for f in apps/web/js/*.js; do node --check "$f"; done

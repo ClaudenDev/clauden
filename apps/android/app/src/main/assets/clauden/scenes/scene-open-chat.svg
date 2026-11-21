@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="640" height="600" role="img" aria-label="Clauden — открывает чат">
+<title>Clauden — открывает чат</title>
+<style>.cl-gaze,.cl-eye,.cl-bob,.cl-panel,.cl-fab,.cl-plus,.cl-ripple,.cl-dot,.cl-key,
+.cl-caret,.cl-check,.cl-check-path,.cl-keys{animation-play-state:running}
+.cl-bob{transform-box:view-box}
+.cl-eye{transform-box:fill-box;transform-origin:50% 50%}
+@media (prefers-reduced-motion:reduce){[class*="cl-"]{animation:none!important}}.cl-bob{transform-origin:160px 86px;animation:oc-bob 6s ease-in-out infinite}
+@keyframes oc-bob{
+0%,22%{transform:translateY(0) scale(1,1)}
+27%{transform:translateY(-7px) scale(1.045,.945)}
+32%{transform:translateY(0) scale(.978,1.026)}
+37%{transform:translateY(-1px) scale(1.006,.994)}
+42%,72%{transform:translateY(0) scale(1,1)}
+80%{transform:translateY(.4px) scale(1.012,.992)}
+100%{transform:translateY(0) scale(1,1)}
+}
+.cl-panel{transform-box:fill-box;transform-origin:50% 100%;
+  animation:oc-panel 6s cubic-bezier(.2,.85,.25,1.05) infinite}
+@keyframes oc-panel{
+0%,22%{opacity:0;transform:translateY(8px) scale(.93)}
+29%{opacity:1;transform:translateY(0) scale(1)}
+79%{opacity:1;transform:translateY(0) scale(1)}
+85%{opacity:0;transform:translateY(7px) scale(.95)}
+100%{opacity:0;transform:translateY(8px) scale(.93)}
+}
+.cl-fab{transform-box:view-box;transform-origin:160px 250px;animation:oc-fab 6s ease-in-out infinite}
+@keyframes oc-fab{
+0%,18%{transform:scale(1)}
+22%{transform:scale(.87)}
+26%{transform:scale(1)}
+82%{transform:scale(1)}
+85%{transform:scale(.9)}
+89%,100%{transform:scale(1)}
+}
+.cl-plus{transform-box:view-box;transform-origin:160px 250px;transform:rotate(45deg);
+  animation:oc-plus 6s cubic-bezier(.3,.9,.3,1.15) infinite}
+@keyframes oc-plus{
+0%,25%{transform:rotate(0deg)}
+31%,80%{transform:rotate(45deg)}
+84%,100%{transform:rotate(0deg)}
+}
+.cl-ripple{transform-box:view-box;transform-origin:160px 250px;opacity:0;
+  animation:oc-ripple 6s ease-out infinite}
+@keyframes oc-ripple{
+0%,20%{opacity:0;transform:scale(1)}
+22%{opacity:.55;transform:scale(1)}
+31%{opacity:0;transform:scale(1.9)}
+100%{opacity:0;transform:scale(1.9)}
+}
+.cl-l1{transform-box:fill-box;transform-origin:0 50%;animation:oc-line1 6s ease-out infinite}
+@keyframes oc-line1{
+0%,26%{opacity:0;transform:scaleX(.25)}
+36%,79%{opacity:1;transform:scaleX(1)}
+85%,100%{opacity:0;transform:scaleX(1)}
+}
+.cl-l2{transform-box:fill-box;transform-origin:100% 50%;animation:oc-line2 6s ease-out infinite}
+@keyframes oc-line2{
+0%,32%{opacity:0;transform:scaleX(.3)}
+42%,79%{opacity:1;transform:scaleX(1)}
+85%,100%{opacity:0;transform:scaleX(1)}
+}
+.cl-gaze{animation:oc-gaze 6s linear infinite}
+@keyframes oc-gaze{
+0%,4%{transform:translate(0,0);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+9%{transform:translate(0,.62px);animation-timing-function:linear}
+22%{transform:translate(0,.62px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+28%{transform:translate(-.2px,.3px);animation-timing-function:linear}
+35%{transform:translate(-.2px,.3px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+42%{transform:translate(1.15px,.15px);animation-timing-function:linear}
+52%{transform:translate(1.15px,.15px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+58%{transform:translate(.1px,-.55px);animation-timing-function:linear}
+68%{transform:translate(.1px,-.55px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+74%{transform:translate(0,0);animation-timing-function:linear}
+100%{transform:translate(0,0)}
+}
+.cl-eye{animation:oc-blink 6s linear infinite}
+@keyframes oc-blink{
+0%,38.6%,41.6%,72%,75%,100%{transform:scale(1,1)}
+40.1%,73.5%{transform:scale(1.08,.06)}
+}</style>
+<defs>
+<mask id="m-open-chat" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="300">
+<rect x="0" y="0" width="320" height="300" fill="#fff"/>
+<g class="cl-gaze"><path class="cl-eye" d="M 154.53 90.94C 153.71 90.72 153.12 90.07 152.79 88.98C 152.37 87.62 152.42 83.87 152.88 82.66C 153.53 80.89 155.53 80.34 156.79 81.55C 157.27 82.02 157.42 82.33 157.66 83.25C 157.81 83.84 157.84 84.30 157.84 85.86C 157.84 88.89 157.49 90.03 156.36 90.69C 155.89 90.97 155.07 91.08 154.53 90.94Z" fill="#000"/><path class="cl-eye" d="M 165.39 90.90C 164.09 90.41 163.50 88.96 163.50 86.18C 163.49 84.72 163.66 83.27 163.89 82.63C 164.39 81.30 165.71 80.59 166.94 81.02C 167.58 81.25 168.05 81.69 168.37 82.34C 168.79 83.23 168.88 83.93 168.83 86.30C 168.78 88.68 168.65 89.29 168.05 90.09C 167.46 90.85 166.25 91.21 165.39 90.90Z" fill="#000"/></g>
+</mask>
+</defs>
+
+<!-- chat panel -->
+<g class="cl-panel">
+  <rect x="40" y="136" width="240" height="96" rx="16" fill="#fff" fill-opacity=".055"
+        stroke="#fff" stroke-opacity=".12"/>
+  <circle cx="62" cy="160" r="7" fill="#d97746" fill-opacity=".9"/>
+  <rect class="cl-l1" x="78" y="154" width="112" height="7" rx="3.5" fill="#fff" fill-opacity=".32"/>
+  <rect class="cl-l1" x="78" y="166" width="74" height="7" rx="3.5" fill="#fff" fill-opacity=".16"/>
+  <rect class="cl-l2" x="172" y="196" width="90" height="18" rx="9" fill="#d97746" fill-opacity=".8"/>
+</g>
+<!-- logo -->
+<g class="cl-bob">
+  <g mask="url(#m-open-chat)">
+    <path class="cl-body" fill="#fff" d="M 158.55 114.24C 157.51 114.05 156.47 113.50 155.77 112.79C 154.10 111.12 153.81 108.68 154.75 104.33C 155.17 102.41 155.74 99.13 155.74 98.68C 155.74 97.79 155.18 97.55 154.39 98.11C 154.16 98.28 152.23 100.17 150.09 102.32C 146.00 106.44 145.22 107.12 143.80 107.80C 142.72 108.30 141.78 108.47 140.77 108.34C 138.71 108.09 137.22 107.09 136.39 105.41C 136.06 104.75 136.00 104.52 135.96 103.84C 135.84 102.07 136.50 100.72 138.36 98.86C 139.37 97.84 141.32 96.09 142.67 95.00C 144.08 93.86 145.64 92.50 146.09 92.03C 146.56 91.54 146.58 91.18 146.15 90.97C 145.65 90.71 144.69 90.82 141.19 91.52C 139.58 91.85 137.64 92.20 136.55 92.38C 135.33 92.58 132.84 92.55 132.15 92.33C 130.58 91.85 129.72 90.98 129.18 89.32C 129.06 88.94 129.03 88.60 129.06 87.89C 129.09 87.04 129.13 86.89 129.46 86.23C 130.31 84.52 131.79 83.46 134.23 82.80C 135.58 82.43 137.98 82.17 142.49 81.88C 143.92 81.80 146.38 81.46 146.53 81.34C 146.74 81.16 146.67 80.72 146.39 80.49C 146.24 80.38 145.02 79.62 143.65 78.81C 142.30 77.99 140.88 77.13 140.50 76.89C 137.97 75.26 136.44 73.89 135.80 72.67C 134.66 70.47 134.89 68.72 136.57 67.03C 137.72 65.85 139.18 65.31 141.01 65.40C 142.63 65.49 143.74 65.93 145.69 67.27C 147.88 68.78 149.80 70.63 153.48 74.80C 154.60 76.05 155.18 76.36 155.51 75.85C 155.87 75.31 155.48 73.55 153.78 68.01C 152.59 64.14 152.50 62.43 153.40 60.60C 154.02 59.34 155.30 58.32 156.80 57.90C 157.05 57.83 157.74 57.78 158.47 57.78C 159.95 57.78 160.74 57.97 161.63 58.57C 162.36 59.06 162.51 59.19 163.00 59.81C 164.26 61.42 164.69 63.62 165.12 70.59C 165.30 73.58 165.40 74.36 165.63 74.63C 165.67 74.70 165.89 74.76 166.11 74.76C 166.46 74.76 166.55 74.70 167.12 74.11C 167.47 73.75 168.00 73.16 168.30 72.79C 173.57 66.30 175.45 64.56 177.96 63.87C 178.83 63.63 180.77 63.64 181.48 63.88C 182.89 64.36 183.92 65.22 184.47 66.40C 184.73 66.93 184.78 67.19 184.81 67.87C 184.86 68.89 184.70 69.61 184.12 70.78C 183.32 72.41 182.16 73.70 178.28 77.26C 176.79 78.63 175.40 80.10 175.10 80.62C 174.91 80.97 174.95 81.49 175.20 81.73C 175.40 81.90 175.52 81.93 176.23 81.92C 176.67 81.92 177.25 81.88 177.51 81.84C 180.96 81.29 182.16 81.16 183.92 81.16C 186.04 81.15 186.74 81.29 188.08 81.94C 190.78 83.28 191.82 86.38 190.41 88.92C 189.65 90.27 188.40 91.14 186.51 91.64C 185.68 91.87 182.85 91.98 180.80 91.88C 179.84 91.83 178.38 91.76 177.55 91.73C 175.45 91.63 174.79 91.83 174.79 92.51C 174.79 92.89 175.10 93.19 177.13 94.81C 181.29 98.10 182.82 99.63 183.59 101.22C 184.10 102.27 184.20 102.74 184.14 103.79C 184.08 104.85 183.90 105.36 183.30 106.29C 182.33 107.76 180.65 108.64 178.76 108.64C 177.78 108.64 177.03 108.44 176.13 107.95C 174.78 107.23 173.77 106.25 170.34 102.37C 169.50 101.42 168.31 100.14 167.70 99.51C 166.69 98.50 166.56 98.40 166.24 98.40C 165.74 98.40 165.60 98.64 165.60 99.54C 165.60 99.94 165.66 100.62 165.74 101.07C 166.00 102.54 166.27 105.59 166.27 107.05C 166.26 108.79 166.03 109.91 165.40 111.15C 164.67 112.55 163.30 113.69 161.78 114.13C 161.05 114.34 159.39 114.40 158.55 114.24Z"/>
+  </g>
+</g>
+<!-- fab -->
+<circle class="cl-ripple" cx="160" cy="250" r="23" fill="none" stroke="#d97746" stroke-width="2"/>
+<g class="cl-fab">
+  <circle cx="160" cy="250" r="23" fill="#d97746"/>
+  <g class="cl-plus">
+    <rect x="151" y="248.4" width="18" height="3.2" rx="1.6" fill="#fff"/>
+    <rect x="158.4" y="241" width="3.2" height="18" rx="1.6" fill="#fff"/>
+  </g>
+</g>
+
+</svg>

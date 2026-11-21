@@ -1,0 +1,25 @@
+{
+  "name": "clauden-code-desktop",
+  "productName": "Clauden Code",
+  "version": "0.1.16",
+  "description": "Clauden Code — десктопная IDE для агентских сессий Clauden",
+  "main": "src/main/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:linux": "electron-builder --linux AppImage tar.gz --x64"
+  },
+  "author": "Clauden",
+  "homepage": "https://clauden.best",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "electron": "^45.2.2",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  }
+}

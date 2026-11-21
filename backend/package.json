@@ -1,0 +1,18 @@
+{
+  "name": "clauden-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Clauden gateway: OpenAI/Anthropic compatible HTTP API used by the web, Android and desktop clients",
+  "main": "src/server.mjs",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "node scripts/test-store.mjs && node scripts/test-auth.mjs && node scripts/test-models.mjs && node scripts/test-accounts.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

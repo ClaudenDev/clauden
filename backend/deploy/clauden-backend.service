@@ -1,0 +1,27 @@
+[Unit]
+Description=Clauden gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=clauden
+Group=clauden
+WorkingDirectory=/srv/clauden/app/backend
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node src/server.mjs
+Restart=always
+RestartSec=3
+
+# сокет и данные — только процессу
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/srv/clauden/data
+UMask=0077
+
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

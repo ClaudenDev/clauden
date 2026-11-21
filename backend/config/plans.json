@@ -1,0 +1,24 @@
+{
+  "Free": {
+    "label": "Free",
+    "paid": false,
+    "price": 0
+  },
+  "Pro": {
+    "label": "Pro",
+    "paid": true,
+    "price": 20
+  },
+  "Max": {
+    "label": "Max",
+    "paid": true,
+    "price": 100
+  },
+  "Ultra": {
+    "label": "Ultra",
+    "paid": true,
+    "price": 180,
+    "compareAt": 200,
+    "badge": "Скидка $20"
+  }
+}

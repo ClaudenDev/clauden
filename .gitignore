@@ -1,0 +1,39 @@
+# данные и секреты
+data/
+.env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key
+*.pfx
+*.jks
+*.keystore
+keystore.properties
+
+# артефакты сборки
+node_modules/
+dist/
+build/
+out/
+.gradle/
+apps/*/build/
+apps/*/out/
+apps/*/app/build/
+apps/*/app/out/
+*.apk
+*.aab
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.zip
+
+# локальные файлы IDE и ОС
+.DS_Store
+.idea/
+.vscode/
+*.iml
+local.properties
+*.log
+tmp/

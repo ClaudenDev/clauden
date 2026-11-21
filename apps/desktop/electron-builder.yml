@@ -1,0 +1,93 @@
+appId: space.teleopen.clauden
+productName: Clauden
+copyright: Copyright (c) 2026 Clauden
+
+directories:
+  output: dist
+  buildResources: assets
+
+files:
+  - src/**/*
+  - package.json
+  - assets/**/*
+  - "!**/*.map"
+  - "!**/*.md"
+
+asar: true
+compression: normal
+
+publish:
+  provider: generic
+  url: https://clauden.best/downloads/updates
+
+protocols:
+  - name: Clauden
+    schemes:
+      - clauden
+
+win:
+  executableName: Clauden
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: assets/icon.ico
+  artifactName: Clauden-${version}-${arch}.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Clauden
+  uninstallDisplayName: Clauden
+
+linux:
+  executableName: Clauden
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+    - target: tar.gz
+      arch: [x64]
+  category: Network
+  icon: assets/icon.png
+  synopsis: Clauden for desktop
+  description: Clauden for desktop - local Claude bridge and Clauden gateway.
+  maintainer: Clauden <support@clauden.best>
+  artifactName: Clauden-${version}-${arch}.${ext}
+
+appImage:
+  artifactName: Clauden-${version}-${arch}.AppImage
+  desktop:
+    entry:
+      Name: Clauden
+      Comment: Clauden for desktop
+      Categories: Network;Chat;
+
+deb:
+  artifactName: Clauden-${version}-${arch}.deb
+  priority: optional
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libsecret-1-0
+    - libuuid1
+
+mac:
+  target: [zip]
+  category: public.app-category.productivity
+  icon: assets/icon.icns
+  artifactName: Clauden-${version}-mac-${arch}.${ext}
+
+extraResources:
+  - from: resources/xray/${os}-${arch}
+    to: xray
+    filter:
+      - "**/*"

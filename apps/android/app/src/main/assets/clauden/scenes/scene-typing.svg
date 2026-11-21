@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="640" height="600" role="img" aria-label="Clauden — печатает">
+<title>Clauden — печатает</title>
+<style>.cl-gaze,.cl-eye,.cl-bob,.cl-panel,.cl-fab,.cl-plus,.cl-ripple,.cl-dot,.cl-key,
+.cl-caret,.cl-check,.cl-check-path,.cl-keys{animation-play-state:running}
+.cl-bob{transform-box:view-box}
+.cl-eye{transform-box:fill-box;transform-origin:50% 50%}
+@media (prefers-reduced-motion:reduce){[class*="cl-"]{animation:none!important}}.cl-bob{transform-origin:160px 142px;animation:tp-bob .48s ease-in-out infinite}
+@keyframes tp-bob{0%,100%{transform:translateY(0) scale(1,1)}
+  50%{transform:translateY(.7px) scale(1.007,.987)}}
+.cl-key{transform-box:fill-box;transform-origin:50% 50%;animation:tp-tap 4.8s linear infinite}
+@keyframes tp-tap{0%,1.1%{transform:translateY(0);fill-opacity:.085}
+  1.7%{transform:translateY(2.4px);fill-opacity:.34}
+  3.4%,100%{transform:translateY(0);fill-opacity:.085}}
+.cl-gaze{animation:tp-gaze 4.8s linear infinite}
+@keyframes tp-gaze{
+0%,6%{transform:translate(0,.35px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+14%{transform:translate(-.9px,.4px);animation-timing-function:linear}
+26%{transform:translate(-.9px,.4px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+34%{transform:translate(.9px,.4px);animation-timing-function:linear}
+46%{transform:translate(.9px,.4px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+54%{transform:translate(0,.42px);animation-timing-function:linear}
+74%{transform:translate(0,.42px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+82%{transform:translate(-.35px,.2px);animation-timing-function:linear}
+100%{transform:translate(0,.35px)}
+}
+.cl-eye{animation:tp-eye 4.8s linear infinite}
+@keyframes tp-eye{
+0%,13%{transform:scale(1.08,.6)}
+16%{transform:scale(1.05,.08)}
+19%,42%{transform:scale(1.08,.6)}
+45%{transform:scale(1.05,.08)}
+48%,76%{transform:scale(1.06,.64)}
+79%{transform:scale(1,1)}
+86%,94%{transform:scale(1,.85)}
+97%,100%{transform:scale(1.08,.6)}
+}
+.cl-caret{animation:tp-caret 1.2s step-end infinite}
+@keyframes tp-caret{0%,49%{opacity:1}50%,100%{opacity:0}}</style>
+<defs>
+<mask id="m-typing" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="300">
+<rect x="0" y="0" width="320" height="300" fill="#fff"/>
+<g class="cl-gaze"><path class="cl-eye" d="M 154.42 147.04C 153.58 146.82 152.98 146.15 152.64 145.04C 152.21 143.65 152.27 139.83 152.73 138.59C 153.40 136.79 155.44 136.22 156.72 137.46C 157.21 137.94 157.37 138.26 157.61 139.19C 157.77 139.80 157.80 140.27 157.80 141.86C 157.80 144.95 157.44 146.11 156.29 146.79C 155.81 147.07 154.97 147.18 154.42 147.04Z" fill="#000"/><path class="cl-eye" d="M 165.50 147.00C 164.17 146.50 163.57 145.02 163.57 142.18C 163.56 140.69 163.73 139.21 163.97 138.56C 164.48 137.20 165.83 136.48 167.08 136.92C 167.73 137.15 168.21 137.60 168.54 138.27C 168.97 139.17 169.06 139.89 169.01 142.31C 168.96 144.73 168.83 145.36 168.21 146.17C 167.61 146.95 166.38 147.32 165.50 147.00Z" fill="#000"/></g>
+</mask>
+</defs>
+
+<!-- chat window -->
+<g class="cl-screen">
+  <rect x="28" y="14" width="264" height="92" rx="14" fill="#fff" fill-opacity=".045"
+        stroke="#fff" stroke-opacity=".1"/>
+  <circle cx="46" cy="32" r="3" fill="#fff" fill-opacity=".22"/>
+  <circle cx="57" cy="32" r="3" fill="#fff" fill-opacity=".22"/>
+  <circle cx="68" cy="32" r="3" fill="#fff" fill-opacity=".22"/>
+  <rect x="46" y="50" width="150" height="7" rx="3.5" fill="#fff" fill-opacity=".3"/>
+  <rect x="46" y="66" width="196" height="7" rx="3.5" fill="#fff" fill-opacity=".2"/>
+  <rect x="46" y="82" width="110" height="7" rx="3.5" fill="#fff" fill-opacity=".14"/>
+  <rect class="cl-caret" x="162" y="80" width="2.4" height="11" rx="1.2" fill="#d97746" fill-opacity=".9"/>
+</g>
+<!-- keyboard -->
+<rect x="36" y="198" width="248" height="72" rx="12" fill="#fff" fill-opacity=".035"
+      stroke="#fff" stroke-opacity=".1"/>
+<rect class="cl-key" x="44" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.00s"/>
+<rect class="cl-key" x="68" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.21s"/>
+<rect class="cl-key" x="92" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.42s"/>
+<rect class="cl-key" x="116" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.63s"/>
+<rect class="cl-key" x="140" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.84s"/>
+<rect class="cl-key" x="164" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-1.05s"/>
+<rect class="cl-key" x="188" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-1.26s"/>
+<rect class="cl-key" x="212" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-1.47s"/>
+<rect class="cl-key" x="236" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-1.68s"/>
+<rect class="cl-key" x="260" y="210" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-1.89s"/>
+<rect class="cl-key" x="56" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-2.10s"/>
+<rect class="cl-key" x="80" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-2.31s"/>
+<rect class="cl-key" x="104" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-2.52s"/>
+<rect class="cl-key" x="128" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-2.73s"/>
+<rect class="cl-key" x="152" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-2.94s"/>
+<rect class="cl-key" x="176" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-3.15s"/>
+<rect class="cl-key" x="200" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-3.36s"/>
+<rect class="cl-key" x="224" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-3.57s"/>
+<rect class="cl-key" x="248" y="228" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-3.78s"/>
+<rect class="cl-key" x="44" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-3.99s"/>
+<rect class="cl-key" x="68" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-4.20s"/>
+<rect class="cl-key" x="92" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-4.41s"/>
+<rect class="cl-key" x="120" y="246" width="80" height="13" rx="3.5" fill="#fff" fill-opacity=".075" stroke="#fff" stroke-opacity=".09" style="animation-delay:-4.62s"/>
+<rect class="cl-key" x="204" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.03s"/>
+<rect class="cl-key" x="228" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.24s"/>
+<rect class="cl-key" x="252" y="246" width="20" height="13" rx="3.5" fill="#fff" fill-opacity=".085" stroke="#fff" stroke-opacity=".09" style="animation-delay:-0.45s"/>
+<!-- logo -->
+<g class="cl-bob">
+  <g mask="url(#m-typing)">
+    <path class="cl-body" fill="#fff" d="M 158.52 170.82C 157.46 170.62 156.40 170.06 155.68 169.34C 153.98 167.63 153.68 165.14 154.64 160.70C 155.07 158.74 155.65 155.40 155.65 154.94C 155.65 154.03 155.08 153.79 154.28 154.36C 154.04 154.53 152.07 156.46 149.89 158.65C 145.71 162.86 144.92 163.55 143.47 164.24C 142.37 164.76 141.41 164.93 140.38 164.80C 138.28 164.54 136.76 163.52 135.91 161.81C 135.57 161.13 135.51 160.90 135.47 160.20C 135.35 158.40 136.02 157.02 137.92 155.12C 138.95 154.08 140.94 152.30 142.32 151.18C 143.76 150.02 145.35 148.63 145.81 148.15C 146.29 147.65 146.31 147.29 145.87 147.07C 145.36 146.81 144.38 146.92 140.81 147.63C 139.16 147.97 137.18 148.33 136.07 148.51C 134.83 148.71 132.29 148.68 131.58 148.46C 129.98 147.97 129.10 147.08 128.55 145.39C 128.43 145.00 128.40 144.65 128.43 143.93C 128.46 143.06 128.50 142.91 128.84 142.23C 129.70 140.49 131.21 139.41 133.70 138.73C 135.08 138.36 137.53 138.09 142.13 137.80C 143.59 137.71 146.10 137.37 146.25 137.25C 146.47 137.06 146.40 136.61 146.11 136.38C 145.96 136.27 144.71 135.49 143.32 134.66C 141.94 133.83 140.49 132.95 140.10 132.70C 137.52 131.04 135.96 129.64 135.31 128.40C 134.14 126.15 134.38 124.37 136.09 122.64C 137.27 121.44 138.76 120.89 140.62 120.98C 142.28 121.07 143.41 121.52 145.40 122.89C 147.63 124.43 149.59 126.32 153.35 130.57C 154.49 131.85 155.08 132.16 155.42 131.64C 155.79 131.09 155.39 129.30 153.65 123.64C 152.44 119.69 152.35 117.95 153.27 116.08C 153.90 114.80 155.20 113.76 156.73 113.33C 156.99 113.25 157.69 113.20 158.44 113.20C 159.95 113.20 160.75 113.40 161.66 114.01C 162.41 114.51 162.56 114.64 163.06 115.28C 164.35 116.92 164.79 119.16 165.22 126.28C 165.41 129.33 165.51 130.12 165.74 130.40C 165.79 130.47 166.01 130.53 166.23 130.53C 166.59 130.53 166.68 130.47 167.27 129.87C 167.62 129.50 168.16 128.90 168.47 128.52C 173.85 121.90 175.77 120.12 178.33 119.42C 179.21 119.17 181.19 119.18 181.92 119.43C 183.36 119.92 184.41 120.80 184.97 122.00C 185.23 122.54 185.29 122.81 185.32 123.50C 185.37 124.54 185.20 125.28 184.61 126.47C 183.80 128.13 182.61 129.45 178.65 133.08C 177.13 134.48 175.71 135.98 175.41 136.51C 175.21 136.87 175.26 137.40 175.51 137.64C 175.71 137.82 175.84 137.85 176.56 137.84C 177.01 137.84 177.60 137.80 177.87 137.76C 181.39 137.19 182.61 137.06 184.41 137.06C 186.57 137.05 187.29 137.19 188.65 137.86C 191.41 139.22 192.47 142.39 191.03 144.98C 190.26 146.36 188.98 147.25 187.05 147.76C 186.20 147.99 183.32 148.10 181.22 148.00C 180.24 147.95 178.75 147.88 177.91 147.85C 175.77 147.75 175.09 147.95 175.09 148.64C 175.09 149.03 175.41 149.34 177.48 150.99C 181.72 154.35 183.29 155.91 184.07 157.53C 184.59 158.60 184.69 159.08 184.63 160.15C 184.57 161.23 184.39 161.75 183.78 162.70C 182.79 164.20 181.07 165.10 179.14 165.10C 178.14 165.10 177.38 164.90 176.46 164.40C 175.08 163.66 174.05 162.66 170.55 158.70C 169.69 157.73 168.48 156.43 167.86 155.79C 166.83 154.75 166.69 154.65 166.37 154.65C 165.86 154.65 165.71 154.90 165.71 155.82C 165.71 156.22 165.78 156.92 165.86 157.38C 166.12 158.88 166.40 161.99 166.40 163.48C 166.39 165.26 166.15 166.40 165.51 167.66C 164.77 169.09 163.37 170.25 161.82 170.70C 161.07 170.92 159.38 170.98 158.52 170.82Z"/>
+  </g>
+</g>
+
+</svg>

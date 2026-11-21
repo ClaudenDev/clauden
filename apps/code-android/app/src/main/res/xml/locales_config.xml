@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    locales: RU заявлен явно, чтобы клавиатуры (Gboard) показывали русскую
+    раскладку по умолчанию в per-app режиме (это был баг «нет русского на
+    клавиатуре»).
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="ru" />
+</locale-config>

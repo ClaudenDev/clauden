@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="600" height="400" role="img" aria-label="Clauden — готово">
+<title>Clauden — готово</title>
+<style>.cl-gaze,.cl-eye,.cl-bob,.cl-panel,.cl-fab,.cl-plus,.cl-ripple,.cl-dot,.cl-key,
+.cl-caret,.cl-check,.cl-check-path,.cl-keys{animation-play-state:running}
+.cl-bob{transform-box:view-box}
+.cl-eye{transform-box:fill-box;transform-origin:50% 50%}
+@media (prefers-reduced-motion:reduce){[class*="cl-"]{animation:none!important}}.cl-bob{transform-origin:133px 116px;animation:su-bob 4.2s ease-in-out infinite}
+@keyframes su-bob{
+0%,6%{transform:translateY(0) scale(1,1)}
+12%{transform:translateY(-6px) scale(.97,1.05)}
+17%{transform:translateY(0) scale(1.045,.955)}
+22%{transform:translateY(-1.6px) scale(.99,1.012)}
+27%,72%{transform:translateY(0) scale(1,1)}
+84%{transform:translateY(.5px) scale(1.008,.993)}
+100%{transform:translateY(0) scale(1,1)}
+}
+.cl-check{transform-box:view-box;transform-origin:181px 77px;animation:su-pop 4.2s cubic-bezier(.2,.9,.3,1.2) infinite}
+@keyframes su-pop{
+0%,4%{opacity:0;transform:scale(.4)}
+12%,84%{opacity:1;transform:scale(1)}
+90%,100%{opacity:0;transform:scale(.85)}
+}
+.cl-check-path{stroke-dasharray:34;stroke-dashoffset:34;animation:su-draw 4.2s ease-out infinite}
+@keyframes su-draw{
+0%,9%{stroke-dashoffset:34}
+19%,88%{stroke-dashoffset:0}
+92%,100%{stroke-dashoffset:46}
+}
+.cl-gaze{animation:su-gaze 4.2s linear infinite}
+@keyframes su-gaze{
+0%,10%{transform:translate(0,0);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+18%{transform:translate(0,-.75px);animation-timing-function:linear}
+44%{transform:translate(0,-.75px);animation-timing-function:cubic-bezier(.3,.9,.35,1.3)}
+52%{transform:translate(0,0);animation-timing-function:linear}
+100%{transform:translate(0,0)}
+}
+.cl-eye{animation:su-blink 4.2s linear infinite}
+@keyframes su-blink{
+0%,23.4%,26.4%,86%,89%,100%{transform:scale(1,1)}
+25%,87.5%{transform:scale(1.08,.06)}
+}
+.cl-eyes-normal{animation:su-normal 4.2s step-end infinite}
+@keyframes su-normal{0%,25%{opacity:1}26%,86%{opacity:0}87%,100%{opacity:1}}
+.cl-eyes-happy{opacity:0;animation:su-happy 4.2s step-end infinite}
+@keyframes su-happy{0%,25%{opacity:0}26%,86%{opacity:1}87%,100%{opacity:0}}</style>
+<defs>
+<mask id="m-success" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="200">
+<rect x="0" y="0" width="300" height="200" fill="#fff"/>
+<g class="cl-gaze"><g class="cl-eyes-normal"><path class="cl-eye" d="M 127.14 121.29C 126.26 121.06 125.63 120.36 125.27 119.19C 124.82 117.73 124.88 113.72 125.37 112.42C 126.07 110.53 128.21 109.93 129.56 111.23C 130.07 111.74 130.24 112.07 130.49 113.05C 130.66 113.69 130.69 114.18 130.69 115.85C 130.69 119.10 130.31 120.32 129.10 121.03C 128.60 121.32 127.72 121.44 127.14 121.29Z" fill="#000"/><path class="cl-eye" d="M 138.78 121.25C 137.38 120.72 136.75 119.17 136.75 116.19C 136.74 114.62 136.92 113.07 137.17 112.39C 137.70 110.96 139.12 110.20 140.43 110.67C 141.12 110.91 141.62 111.38 141.97 112.08C 142.42 113.03 142.51 113.78 142.46 116.33C 142.41 118.87 142.27 119.53 141.62 120.38C 140.99 121.20 139.70 121.59 138.78 121.25Z" fill="#000"/></g><g class="cl-eyes-happy"><path d="M123.80 115.70Q127.79 120.95 131.78 115.70" fill="none" stroke="#000" stroke-width="2.94" stroke-linecap="round"/><path d="M135.59 115.69Q139.58 120.94 143.57 115.69" fill="none" stroke="#000" stroke-width="2.94" stroke-linecap="round"/></g></g>
+</mask>
+</defs>
+
+<g class="cl-check">
+  <circle cx="181" cy="77" r="20" fill="#d97746"/>
+  <path class="cl-check-path" d="M173 77.5 L179 83.5 L190 69.5" fill="none" stroke="#fff"
+        stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g class="cl-bob">
+  <g mask="url(#m-success)">
+    <path class="cl-body" fill="#fff" d="M 131.45 146.26C 130.33 146.05 129.22 145.46 128.46 144.71C 126.68 142.91 126.36 140.30 127.37 135.63C 127.82 133.58 128.43 130.07 128.43 129.59C 128.43 128.63 127.83 128.38 126.99 128.98C 126.74 129.16 124.67 131.18 122.38 133.48C 118.00 137.90 117.17 138.63 115.64 139.35C 114.49 139.90 113.48 140.08 112.40 139.94C 110.19 139.67 108.60 138.60 107.71 136.80C 107.35 136.09 107.29 135.85 107.24 135.11C 107.12 133.22 107.82 131.77 109.82 129.78C 110.90 128.68 112.99 126.81 114.44 125.64C 115.95 124.42 117.62 122.96 118.10 122.46C 118.60 121.93 118.63 121.55 118.16 121.32C 117.63 121.05 116.60 121.17 112.85 121.91C 111.12 122.27 109.04 122.65 107.87 122.84C 106.57 123.05 103.90 123.01 103.16 122.78C 101.48 122.27 100.56 121.33 99.98 119.56C 99.85 119.15 99.82 118.78 99.85 118.03C 99.88 117.11 99.92 116.96 100.28 116.24C 101.19 114.41 102.77 113.28 105.39 112.57C 106.83 112.18 109.41 111.89 114.24 111.59C 115.77 111.50 118.41 111.14 118.56 111.01C 118.79 110.81 118.72 110.34 118.42 110.10C 118.26 109.98 116.95 109.16 115.49 108.29C 114.04 107.42 112.51 106.50 112.11 106.24C 109.40 104.49 107.76 103.02 107.08 101.72C 105.85 99.36 106.10 97.49 107.89 95.67C 109.13 94.41 110.70 93.83 112.65 93.93C 114.39 94.02 115.58 94.50 117.67 95.93C 120.01 97.55 122.07 99.54 126.02 104.00C 127.21 105.34 127.83 105.67 128.19 105.12C 128.58 104.54 128.16 102.66 126.33 96.72C 125.06 92.57 124.97 90.75 125.93 88.78C 126.59 87.44 127.96 86.35 129.57 85.90C 129.84 85.81 130.57 85.76 131.36 85.76C 132.95 85.76 133.79 85.97 134.74 86.61C 135.53 87.14 135.69 87.27 136.21 87.94C 137.57 89.67 138.03 92.02 138.48 99.49C 138.68 102.70 138.79 103.53 139.03 103.82C 139.08 103.89 139.31 103.96 139.54 103.96C 139.92 103.96 140.01 103.89 140.63 103.26C 141.00 102.88 141.57 102.25 141.89 101.85C 147.54 94.89 149.56 93.03 152.25 92.29C 153.17 92.03 155.25 92.04 156.02 92.30C 157.53 92.82 158.63 93.74 159.22 95.00C 159.49 95.57 159.55 95.85 159.59 96.58C 159.64 97.67 159.46 98.44 158.84 99.69C 157.99 101.44 156.74 102.82 152.58 106.63C 150.99 108.10 149.50 109.68 149.18 110.24C 148.97 110.61 149.02 111.17 149.29 111.42C 149.50 111.61 149.63 111.64 150.39 111.63C 150.86 111.63 151.48 111.59 151.76 111.55C 155.46 110.95 156.74 110.81 158.63 110.81C 160.90 110.80 161.65 110.95 163.08 111.65C 165.98 113.08 167.09 116.41 165.58 119.13C 164.77 120.58 163.43 121.51 161.40 122.05C 160.51 122.29 157.49 122.41 155.28 122.30C 154.25 122.25 152.69 122.17 151.81 122.14C 149.56 122.04 148.84 122.25 148.84 122.97C 148.84 123.38 149.18 123.71 151.35 125.44C 155.81 128.97 157.45 130.61 158.27 132.31C 158.82 133.43 158.92 133.93 158.86 135.06C 158.80 136.19 158.61 136.74 157.97 137.74C 156.93 139.31 155.12 140.25 153.10 140.25C 152.05 140.25 151.25 140.05 150.28 139.52C 148.83 138.74 147.75 137.69 144.08 133.54C 143.17 132.52 141.90 131.15 141.25 130.48C 140.17 129.39 140.02 129.28 139.69 129.28C 139.15 129.28 139.00 129.55 139.00 130.51C 139.00 130.93 139.07 131.67 139.15 132.15C 139.43 133.72 139.72 136.99 139.72 138.55C 139.71 140.42 139.46 141.62 138.79 142.94C 138.01 144.44 136.54 145.66 134.91 146.13C 134.12 146.37 132.35 146.43 131.45 146.26Z"/>
+  </g>
+</g>
+
+</svg>

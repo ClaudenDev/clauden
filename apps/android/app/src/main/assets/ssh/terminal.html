@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="xterm.css">
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; background: #0A0A09; overflow: hidden; }
+    #terminal { position: absolute; inset: 0; padding: 4px 2px; box-sizing: border-box; }
+    .xterm-viewport { background: #0A0A09 !important; }
+    .xterm { height: 100%; }
+    .xterm-screen { padding-left: 4px; }
+  </style>
+</head>
+<body>
+<div id="terminal"></div>
+<script src="xterm.js"></script>
+<script src="xterm-addon-fit.js"></script>
+<script>
+  const term = new Terminal({
+    cursorBlink: true,
+    cursorStyle: 'block',
+    fontSize: 13,
+    fontFamily: 'JetBrains Mono, monospace',
+    lineHeight: 1.15,
+    scrollback: 5000,
+    convertEol: false,
+    allowProposedApi: true,
+    theme: {
+      background: '#0A0A09',
+      foreground: '#E9E6E0',
+      cursor: '#D97757',
+      cursorAccent: '#0A0A09',
+      selectionBackground: '#3A2A24',
+      black: '#0A0A09',
+      red: '#D47A6A',
+      green: '#7FA96B',
+      yellow: '#D9B26A',
+      blue: '#8FA8C8',
+      magenta: '#C08AC0',
+      cyan: '#7FB3B3',
+      white: '#E9E6E0',
+      brightBlack: '#5E5B56',
+      brightRed: '#E08C7A',
+      brightGreen: '#9BC487',
+      brightYellow: '#E5C77F',
+      brightBlue: '#A8C0DE',
+      brightMagenta: '#D3A6D3',
+      brightCyan: '#9BCCCC',
+      brightWhite: '#FFFFFF'
+    }
+  });
+  const fit = new FitAddon.FitAddon();
+  term.loadAddon(fit);
+  term.open(document.getElementById('terminal'));
+
+  function doFit() {
+    try { fit.fit(); } catch (e) {}
+  }
+  window.addEventListener('resize', doFit);
+  window.addEventListener('orientationchange', () => setTimeout(doFit, 120));
+
+  term.onData(data => {
+    if (window.AndroidTerminal) AndroidTerminal.onData(data);
+  });
+  term.onResize(size => {
+    if (window.AndroidTerminal) AndroidTerminal.onResize(size.cols, size.rows);
+  });
+
+  window.writeTerm = (text) => term.write(text);
+  window.clearTerm = () => term.clear();
+  window.focusTerm = () => term.focus();
+  window.fitTerm = () => doFit();
+  window.copyTerm = () => {
+    const selected = term.getSelection();
+    if (selected && window.AndroidTerminal) AndroidTerminal.onCopy(selected);
+    return selected;
+  };
+  window.pasteText = (text) => {
+    if (window.AndroidTerminal) AndroidTerminal.onData(text);
+  };
+
+  setTimeout(() => {
+    doFit();
+    term.focus();
+    if (window.AndroidTerminal) AndroidTerminal.onReady();
+  }, 80);
+  setTimeout(() => { doFit(); term.focus(); }, 320);
+</script>
+</body>
+</html>

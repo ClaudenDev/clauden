@@ -1,0 +1,29 @@
+{
+  "name": "clauden-desktop",
+  "productName": "Clauden",
+  "version": "0.2.11",
+  "description": "Clauden for desktop: local Claude bridge + Clauden gateway",
+  "main": "src/main/main.js",
+  "type": "commonjs",
+  "author": "Clauden",
+  "homepage": "https://clauden.best",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "mock": "electron . --mock-claude",
+    "test": "node --test test/*.test.js",
+    "dist:linux": "electron-builder --linux AppImage deb tar.gz --x64",
+    "dist:linux:dir": "electron-builder --linux dir --x64",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:mac": "electron-builder --mac zip --x64 --arm64"
+  },
+  "devDependencies": {
+    "electron": "^45.2.2",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  }
+}
