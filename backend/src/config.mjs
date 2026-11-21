@@ -118,6 +118,14 @@ export const config = {
     exec: bool("CLAUDEN_CODE_EXEC", false),
   },
 
+  pool: {
+    secret: env("CLAUDEN_POOL_SECRET", ""),
+    base: env("CLAUDEN_POOL_BASE", "https://api.anthropic.com").replace(/\/+$/, ""),
+    model: env("CLAUDEN_POOL_MODEL", "claude-sonnet-4-5"),
+    maxTokens: int("CLAUDEN_POOL_MAX_TOKENS", 32000),
+    timeoutMs: int("CLAUDEN_POOL_TIMEOUT_MS", 600_000),
+  },
+
   limits: {
     maxConcurrentTurns: int("CLAUDEN_MAX_CONCURRENT", 8),
     maxBodyBytes: int("CLAUDEN_MAX_BODY_BYTES", 32 * 1024 * 1024),

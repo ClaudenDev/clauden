@@ -191,3 +191,6 @@ data: [DONE]
 |---|---|---|
 | GET | `/v1/admin/users` | список пользователей |
 | POST | `/v1/admin/plan` | `{user, plan}` выдать тариф |
+| GET | `/v1/admin/pool` | состояние пула ключей |
+| POST | `/v1/admin/pool/reload` | перечитать пул с диска |
+| POST | `/v1/admin/pool/revive` | вернуть ключ в строй `{id}` |

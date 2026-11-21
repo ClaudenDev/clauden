@@ -11,6 +11,8 @@ import { CodeManager } from "./code.mjs";
 import { config, ensureDataDir, hasUpstream } from "./config.mjs";
 import { bearer, readJsonBody, sendError, sendJson, SseStream, clientIp } from "./http.mjs";
 import { ApiKeyStore } from "./keys.mjs";
+import { AnthropicKeyPool } from "./keypool.mjs";
+import { AnthropicPoolClient } from "./pool-client.mjs";
 import { ModelRegistry } from "./models.mjs";
 import { buildPlans, planFor, publicPlans } from "./plans.mjs";
 import { readJson } from "./store.mjs";
@@ -40,6 +42,8 @@ const memory = new MemoryStore({ config, log });
 const keys = new ApiKeyStore({ config, log });
 const accounts = new AccountsProvider({ config, log });
 const pool = new InferencePool({ config, log });
+const keyPool = new AnthropicKeyPool({ config, log });
+const poolClient = new AnthropicPoolClient({ config, pool: keyPool, log });
 const billing = new BillingStore({ config, plans, auth, accounts, log });
 const code = new CodeManager({ config, pool, registry, log });
 billing.start();
@@ -128,6 +132,7 @@ const server = http.createServer(async (req, res) => {
         uptime: Math.round((Date.now() - STARTED) / 1000),
         pool: hasUpstream() ? "configured" : "missing",
         accounts: accounts.describe(),
+        pool: keyPool.status(),
       });
     }
 
@@ -470,6 +475,20 @@ const server = http.createServer(async (req, res) => {
           data: Object.values(auth.users).map((user) => publicUser(user, plans)),
         });
       }
+      if (route === "GET /v1/admin/pool") {
+        return sendJson(res, 200, keyPool.status());
+      }
+      if (route === "POST /v1/admin/pool/reload") {
+        const count = keyPool.reload();
+        return sendJson(res, 200, { ok: true, keys: count });
+      }
+      if (route === "POST /v1/admin/pool/revive") {
+        const body = await readJsonBody(req);
+        const entry = keyPool.get(String(body.id || ""));
+        if (!entry) return sendError(res, 404, "Ключ не найден");
+        keyPool.revive(entry);
+        return sendJson(res, 200, { ok: true, key: keyPool.status().keys.find((k) => k.id === entry.id) });
+      }
       if (route === "POST /v1/admin/plan") {
         const body = await readJsonBody(req);
         const plan = planFor(plans, body.plan);
@@ -534,7 +553,7 @@ async function handleAnthropicChat(req, res) {
 
   try {
     if (!wantStream) {
-      const result = await pool.complete(body, {
+      const result = await answerOnce(body, {
         model,
         system: stringSystem(body.system),
         account: seat?.token,
@@ -578,10 +597,9 @@ async function handleAnthropicChat(req, res) {
     })}\n\n`);
 
     let full = "";
-    for await (const chunk of pool.stream(body, {
+    for await (const chunk of answerStream(body, {
       model,
       system: stringSystem(body.system),
-      signal: undefined,
       account: seat?.token,
     })) {
       if (!chunk.delta) continue;
@@ -654,7 +672,7 @@ async function handleResponses(req, res) {
 
   try {
     if (!body.stream) {
-      const result = await pool.complete(request, {
+      const result = await answerOnce(request, {
         model,
         system: stringSystem(body.instructions),
         account: seat?.token,
@@ -687,7 +705,7 @@ async function handleResponses(req, res) {
       response: { id: responseId, object: "response", status: "in_progress", model },
     })}\n\n`);
     let full = "";
-    for await (const chunk of pool.stream(request, {
+    for await (const chunk of answerStream(request, {
       model,
       system: stringSystem(body.instructions),
       account: seat?.token,
@@ -730,6 +748,41 @@ async function handleResponses(req, res) {
     }
     throw err;
   }
+}
+
+async function* answerStream(body, options) {
+  const hasSeat = Boolean(options?.account);
+  if (hasSeat) {
+    let emitted = false;
+    try {
+      for await (const chunk of pool.stream(body, options)) {
+        emitted = true;
+        yield chunk;
+      }
+      return;
+    } catch (err) {
+      if (!poolClient.enabled || emitted) throw err;
+      log(`seat unavailable, switching to key pool: ${err.message}`);
+    }
+  }
+  if (poolClient.enabled) {
+    yield* poolClient.stream(body, options);
+    return;
+  }
+  yield* pool.stream(body, options);
+}
+
+async function answerOnce(body, options) {
+  if (options?.account) {
+    try {
+      return await pool.complete(body, options);
+    } catch (err) {
+      if (!poolClient.enabled) throw err;
+      log(`seat unavailable, switching to key pool: ${err.message}`);
+    }
+  }
+  if (poolClient.enabled) return poolClient.complete(body, options);
+  return pool.complete(body, options);
 }
 
 function stringSystem(value) {
@@ -791,7 +844,7 @@ async function handleChat(req, res) {
 
   try {
     if (!wantStream) {
-      const result = await pool.complete(body, {
+      const result = await answerOnce(body, {
         model,
         system: body.system,
         account: seat?.token,
@@ -813,7 +866,7 @@ async function handleChat(req, res) {
     const stream = new SseStream(res);
     let full = "";
     const reasoningMs = Date.now();
-    for await (const chunk of pool.stream(body, {
+    for await (const chunk of answerStream(body, {
       model,
       system: body.system,
       signal: abort.signal,
@@ -840,6 +893,14 @@ async function handleChat(req, res) {
           object: "chat.completion.chunk",
           model,
           choices: [{ index: 0, delta: { content: chunk.delta } }],
+        });
+      }
+      if (chunk.failover) {
+        stream.send({
+          id: turn.id,
+          object: "chat.completion.chunk",
+          model,
+          choices: [{ index: 0, delta: { clauden_failover: chunk.failover } }],
         });
       }
       if (chunk.finish) {

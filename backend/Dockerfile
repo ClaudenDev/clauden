@@ -6,6 +6,7 @@ COPY package.json ./
 COPY src ./src
 COPY config ./config
 COPY scripts ./scripts
+COPY tools ./tools
 
 ENV CLAUDEN_HOST=0.0.0.0 \
     CLAUDEN_PORT=8788 \

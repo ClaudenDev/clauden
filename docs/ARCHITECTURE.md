@@ -21,6 +21,8 @@
 │  billing.mjs     Platega / Lava / xRocket                          │
 │  code.mjs        сессии Clauden Code, файлы, git, exec             │
 │  upstream.mjs    клиент пула инференса                             │
+│  keypool.mjs     пул ключей Anthropic: выбор, паузы, отзыв         │
+│  pool-client.mjs вызовы Anthropic с переключением ключей           │
 │  accounts.mjs    relay к поставщику подписок                       │
 └───────────────┬───────────────────────────────┬────────────────────┘
                 │                               │
