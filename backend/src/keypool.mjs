@@ -228,6 +228,6 @@ function normalize(entry) {
 
 function fingerprint(key) {
   const value = String(key || "");
-  if (value.length < 16) return "";
-  return `${value.slice(0, 8)}…${value.slice(-4)}`;
+  if (value.length < 8) return "";
+  return `…${value.slice(-4)}`;
 }

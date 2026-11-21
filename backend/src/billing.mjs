@@ -33,7 +33,7 @@ export class BillingStore {
     }
   }
 
-  checkout(user, { plan, method, autoRenew }) {
+  async checkout(user, { plan, method, autoRenew }) {
     const id = String(plan || "").trim();
     const selected = this.plans[id];
     if (!selected || !selected.paid) {
@@ -66,12 +66,17 @@ export class BillingStore {
       events: [{ type: "created", at: Date.now() }],
     };
     this.docs.put(order.id, order);
-    this.#createInvoice(order).catch((err) => {
+    try {
+      await this.#createInvoice(order);
+    } catch (err) {
       this.log(`billing: checkout ${order.id} failed: ${err.message}`);
       order.status = "failed";
       order.error = err.message;
+      order.events.push({ type: "failed", at: Date.now() });
       this.docs.put(order.id, order);
-    });
+      throw httpError(502, "Не удалось создать счёт. Попробуйте другой способ оплаты.");
+    }
+    this.docs.put(order.id, order);
     return publicOrder(order);
   }
 

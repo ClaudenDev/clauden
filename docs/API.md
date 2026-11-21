@@ -15,6 +15,18 @@
 |---|---|---|
 | GET | `/health` | статус, версия, состояние пула и поставщика |
 
+```json
+{
+  "ok": true,
+  "version": "1.0.0",
+  "upstream": "configured",
+  "accounts": { "provider": "external", "configured": true, "endpoint": "…" },
+  "keys": { "enabled": true, "total": 12, "active": 10, "cooling": 1, "invalid": 1 }
+}
+```
+
+Самих ключей и адресов провайдера в ответе нет.
+
 ## Авторизация
 
 | Метод | Путь | Тело | Ответ |

@@ -130,9 +130,9 @@ const server = http.createServer(async (req, res) => {
         service: config.serviceName,
         version: VERSION,
         uptime: Math.round((Date.now() - STARTED) / 1000),
-        pool: hasUpstream() ? "configured" : "missing",
+        upstream: hasUpstream() ? "configured" : "missing",
         accounts: accounts.describe(),
-        pool: keyPool.status(),
+        keys: keySummary(keyPool.status()),
       });
     }
 
@@ -373,7 +373,7 @@ const server = http.createServer(async (req, res) => {
       const found = requireUser(req, res);
       if (!found) return;
       const body = await readJsonBody(req);
-      return sendJson(res, 200, { order: billing.checkout(found.user, body) });
+      return sendJson(res, 200, { order: await billing.checkout(found.user, body) });
     }
     if (route === "POST /v1/billing/cancel") {
       const found = requireUser(req, res);
@@ -501,6 +501,7 @@ const server = http.createServer(async (req, res) => {
     return sendError(res, 404, "Не найдено", "not_found");
   } catch (err) {
     const status = err.status || (err instanceof UpstreamError ? err.status : 500);
+    const exposed = err instanceof UpstreamError || status < 500;
     if (status >= 500) log(`error ${route}: ${err.stack || err.message}`);
     if (res.headersSent) {
       try {
@@ -510,7 +511,12 @@ const server = http.createServer(async (req, res) => {
       }
       return;
     }
-    return sendError(res, status, err.message || "Внутренняя ошибка", err.type || "server_error");
+    return sendError(
+      res,
+      status,
+      exposed ? err.message || "Ошибка запроса" : "Внутренняя ошибка сервера",
+      err.type || "server_error",
+    );
   }
 });
 
@@ -748,6 +754,16 @@ async function handleResponses(req, res) {
     }
     throw err;
   }
+}
+
+function keySummary(status) {
+  return {
+    enabled: status.enabled,
+    total: status.total,
+    active: status.active,
+    cooling: status.cooling,
+    invalid: status.invalid,
+  };
 }
 
 async function* answerStream(body, options) {

@@ -9,6 +9,7 @@
     "start": "node src/server.mjs",
     "dev": "node --watch src/server.mjs",
     "smoke": "node scripts/smoke.mjs",
+    "e2e": "node scripts/e2e.mjs",
     "pool": "node tools/pool-import.mjs",
     "test": "node scripts/test-store.mjs && node scripts/test-auth.mjs && node scripts/test-models.mjs && node scripts/test-accounts.mjs && node scripts/test-pool.mjs"
   },

@@ -23,6 +23,9 @@ jobs:
       - name: smoke
         working-directory: backend
         run: npm run smoke
+      - name: e2e
+        working-directory: backend
+        run: npm run e2e
 
   web:
     runs-on: ubuntu-latest
